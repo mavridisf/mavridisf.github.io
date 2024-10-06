@@ -1,21 +1,52 @@
-html {
-  background: #000060;
+html
+{
+  background: linear-gradient(to top, #401030, #000090);
   display: flex;
   height: 100%;
   justify-content: space-around;
-  align-items: center;
+  align-items: top;
 }
 
-body {
+body
+{
   font-family: Didact Gothic;
   font-size: 1.15em;
   color: #ffffff;
-  max-width: 50em;
+  width: 42em;
   padding: 2em;
 }
 
-a {
+a
+{
   color: #ffffff;
+}
+
+nav
+{
+    border: solid .05em #ffffff;
+    border-radius: .25em;
+    padding: .15em;
+/*     box-shadow: 0 .5em 1em #000000; */
+    background: #000080;
+}
+
+p
+{
+    margin: 1.5em 0;
+}
+
+nav > a
+{
+    text-decoration: none;
+    display: inline-block;
+    padding: .25em;
+    border-radius: .25em;
+}
+
+nav > a:hover
+{
+    background: #ffffff;
+    color: #000080;
 }
 
 @media screen and (max-width: 800px) {
