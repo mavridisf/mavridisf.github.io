@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="el">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>ΠΜΣ «Κοινωνία της Πληροφορίας Μέσα και Τεχνολογία» 2024</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.15/index.global.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.15/locales/el.global.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@6.1.15/index.global.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/list@6.1.15/index.global.min.js"></script>
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>ΠΜΣ «Κοινωνία της Πληροφορίας Μέσα και Τεχνολογία» 2024</h1>
+    </header>
+    <main>
+      <h2>Ημερολόγιο</h2>
+      <div>
+        <div id="calendar"></div>
+      </div>
+
+      <h2>Ο καιρός στην Αθήνα</h2>
+      <div id="weather">
+        <div id="idc5620c1ee1eb7" a='{"t":"r","v":"1.2","lang":"el","locs":[867],"ssot":"c","sics":"ds","cbkg":"#FFFFFF00","cfnt":"#000000","codd":"#FFFFFF00","cont":"#000000d4","stof":"5"}'>
+          Πηγή δεδομένων καιρού: <a href="https://sharpweather.com/weather_athens/30_days/">weather Athens 30 days</a>
+        </div>
+        <script async src="https://static1.sharpweather.com/widgetjs/?id=idc5620c1ee1eb7"></script>
+      </div>
+
+      <h2 class="collapsed" data-load="https://cmc.panteion.gr/images/2024/Academic_Calendar_2024-2025.jpg">Ακαδημαϊκό ημερολόγιο</h2>
+      <div id="acad_sched" style="display: none">
+      </div>
+
+      <h2 class="collapsed" data-load="https://cmc.panteion.gr/images/Postgraduate/programma_didaskalias_pms_2024a.jpg">Πρόγραμμα σπουδών</h2>
+      <div id="lesson_plan" style="display: none">
+      </div>
+
+      <h2>Σύνδεσμοι</h2>
+      <div id="links">
+        <h3>Γενικές Πληροφορίες</h3>
+        <a href="https://www.panteion.gr/" target="_blank">Πάντειο Πανεπιστήμιο</li></a>
+        <a href="https://cmc.panteion.gr/" target="_blank">Τμήμα Επικοινωνίας Μέσων και Πολιτισμού</li></a>
+        <a href="https://infosocietymediatechnology.tilda.ws/" target="_blank">ΠΜΣ «Κοινωνία της Πληροφορίας Μέσα και Πολιτισμός»</li></a>
+
+        <h3>Σπουδές</h3>
+        <a href="https://openeclass.panteion.gr/" target="_blank">Open eClass</a></li>
+        <a href="https://cmc.panteion.gr/images/Postgraduate/pms_programma_spoudon_2024-2025.pdf" target="_blank">Πρόγραμμα σπουδών 2024-25</a></li>
+        <a href="https://sis.panteion.gr/unistudent" target="_blank">Δηλώσεις μαθημάτων/Βαθμολογίες</a></li>
+
+        <h3>Χρήσιμα</h3>
+        <a href="https://www.dropbox.com/scl/fo/35wfe3xfxkbzhf9g4nqtl/ANiIAKh9uDx0Lyqzvc4jgyg?e=1&fbclid=IwZXh0bgNhZW0CMTEAAR093dXyLAgC4EGJPSqaLJVIEZxme8yuANV9V5CBzBn7d5hWs6gZMw9EiSc_aem_JVt32WtI42hmEEtkfhghvg&rlkey=nzdmyenwv66xrwnr6nulu8z50&st=bmd9cgjf&dl=0" target="_blank">Dropbox με χρήσιμα βιβλία <small>(Credit: Δ. Αλαγιάννης)</small></a>
+      </div>
+    </main>
+    <footer>
+      <img src="assets/owl.png" alt="" title="Study or the owl will eat you."/>
+      <div>
+        <p><b>ΠΜΣ «Κοινωνία της Πληροφορίας Μέσα και Τεχνολογία» 2024</b></p>
+        <p>Ο παρών ιστότοπος δεν έχει επίσημη σχέση με το Πάντειο Πανεπιστήμιο ή το ΠΜΣ.</p>
+        <p>Επικοινωνία: <b><a href='mailto:emme200026@edu.panteion.gr'>emme200026@edu.panteion.gr</a></b></p>
+      </div>
+    </footer>
+  </body>
+</html>
