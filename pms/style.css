@@ -3,11 +3,16 @@ html, body
     height: 100vh;
 }
 
+body,
+body * {
+    font-family: "Inter Tight", "Roboto Condensed", Roboto, sans-serif !important;
+}
+
 body
 {
     margin: 0;
     background: #ffffff;
-    font-family: Roboto, sans-serif;
+    font-size: 12pt;
     display: flex;
     flex-flow: column nowrap;
     align-items: stretch;
@@ -18,7 +23,7 @@ body > *
     box-sizing: border-box;
 }
 
-header, footer, main
+header, main
 {
     padding: 1rem;
 }
@@ -48,23 +53,26 @@ main > h2
 {
     background: #DDDDDD;
     margin: 1rem 0 0 0;
+    border-radius: .25rem;
+    cursor: pointer;
 }
 
 main > h2:not(.collapsed)
 {
     border-bottom: none !important;
+    border-radius: .25rem .25rem 0 0;
 }
 
 main > h2::after
 {
-    content: "-";
+    content: "▲";
     position: absolute;
     right: 3rem;
 }
 
 main > h2.collapsed::after
 {
-    content: "+";
+    content: "▼";
 }
 
 main > h2,
@@ -93,7 +101,7 @@ footer
     text-align: center;
     background: #000000;
     color: #ffffff;
-    padding: 1rem;
+    padding: 0;
 }
 
 footer > img
@@ -104,7 +112,7 @@ footer > img
 
 footer a
 {
-    color: #ffffff;
+    color: #ffffff !important;
 }
 
 #links
@@ -133,10 +141,89 @@ footer a
 {
     background: #FAEEFF;
     cursor: pointer;
-    padding-left: 1rem;
+    padding-left: 1.25rem;
+}
+
+#today > div
+{
+    display: flex;
+    flex-flow: row;
+}
+
+#today_day
+{
+    position: relative;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
+    margin-right: 1.5rem;
+    font-size: 1.25rem;
+    outline: solid 1px #888888;
+    border-top: solid 1.75rem #CCCCCC;
+    box-shadow: 0 0 0 #888888,
+                1px 1px 0 #888888,
+                2px 2px 0 #888888,
+                3px 3px 0 #888888,
+                4px 4px 0 #888888,
+                5px 5px 0 #888888;
+    padding: 1rem;
+}
+
+#today_day > div
+{
+    font-family: "Cardo", "GFS Porson", serif !important;
+    font-size: 1.5rem;
+    line-height: .8;
+    text-align: center;
+    width: 7.5rem;
+}
+
+#today_day > div:nth-child(2)
+{
+    font-size: 5rem;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, .5);
+}
+
+#today_day.holiday > div:not(:nth-child(3))
+{
+    color: red;
+}
+
+#today_events
+{
+    flex-grow: 1;
+}
+
+#today_events .fc-list-day
+{
+    display: none;
+}
+
+#today_events .fc-listDay-view
+{
+    border: none;
+}
+
+#today_events .fc-list-empty
+{
+    background: transparent;
+    border: dashed 1px #cccccc;
+    padding: 1rem;
+    text-align: center;
 }
 
 .fc-toolbar-title { padding: .5rem; }
+
+a
+{
+    color: #000000 !important;
+    text-decoration: none !important;
+}
+
+a:hover
+{
+    text-decoration: underline !important;
+}
 
 @media screen and (max-width: 700px)
 {

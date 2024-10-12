@@ -1,40 +1,156 @@
 const SEMESTER_START = "2024-10-07",
-      SEMESTER_END = "2025-01-17";
+      SEMESTER_END = "2025-01-17",
+      HOLIDAYS = {
+        "Εθνική Επέτειος":     "2024-10-28",
+        "Πολυτεχνείο":         "2024-11-17",
+        "Χριστούγεννα":        ["2024-12-23", "2025-01-06"],
+        "Τριών Ιεραρχών":      "2025-01-30",
+        "Καθαρά Δευτέρα":      "2025-03-03",
+        "Εθνική Επέτειος":     "2025-03-25",
+        "Ορθόδοξο Πάσχα":      ["2025-04-14", "2025-04-25"],
+        "Εργατική Πρωτομαγιά": "2025-05-01",
+        "Αγίου Πνεύματος":     "2025-06-09"
+      };
 
-function lesson_event(title, desc, dayOfWeek, timeStart, timeEnd, color, from = SEMESTER_START, to = SEMESTER_END)
+var EXRULES = [], HOLIDAY_EVENTS = [], STRIKES = [];
+
+function course_event(dayOfWeek, timeStart, timeEnd, courseCode, title, desc, color, from = SEMESTER_START, to = SEMESTER_END, duration = "03:00")
 {
     return {
         title: title + " - " + desc,
-        startRecur: from,
-        endRecur: to,
-        daysOfWeek: [dayOfWeek],
-        startTime: timeStart,
-        endTime: timeEnd,
-        backgroundColor: color
+        rrule: {
+            dtstart: from + "T" + timeStart,
+            until: to + "T" + timeEnd,
+            freq: 'weekly',
+            byweekday: [dayOfWeek],
+        },
+        duration: duration,
+        backgroundColor: color,
+        exrule: EXRULES,
+        url: "https://openeclass.panteion.gr/courses/" + courseCode
     };
 }
 
-window.onload = () => {
+function set_tab_shown(header, show, store_state = true)
+{
+    let tab = header.nextElementSibling;
+    if (show !== null && tab)
+    {
+        if (show)
+        {
+            header.classList.remove("collapsed");
+
+            if (tab.getAttribute("data-load"))
+            {
+                let img = document.createElement("IMG");
+                img.src = tab.getAttribute("data-load");
+                tab.appendChild(img);
+                tab.removeAttribute("data-load");
+            }
+        }
+        else
+        {
+            header.classList.add("collapsed");
+        }
+
+        if (store_state && tab.id.length)
+        {
+            localStorage.setItem("tabstate_" + tab.id, show);
+        }
+
+        tab.style.display = (show ? "block" : "none");
+    }
+}
+
+window.onload = async () => {
+    let today = new Date();
+
     let tabs = document.getElementsByTagName("h2");
     for (let i = 0; i < tabs.length; ++i)
     {
         tabs[i].addEventListener("click", function() {
-            this.classList.toggle("collapsed");
+            let show = tab.style.display == "none";
+            set_tab_shown(this, show);
+        });
 
-            let tabContent = this.nextElementSibling;
-            tabContent.style.display = (tabContent.style.display == "none" ? "block" : "none");
+        let tab = tabs[i].nextElementSibling;
+        if (tab.id.length)
+        {
+            let show = JSON.parse(localStorage.getItem("tabstate_" + tab.id));
+            set_tab_shown(tabs[i], show, false);
+        }
+    }
 
-            if (this.getAttribute("data-load"))
-            {
-                let img = document.createElement("IMG");
-                img.src = this.getAttribute("data-load");
-                tabContent.appendChild(img);
-                this.removeAttribute("data-load");
-            }
+    for (var key in HOLIDAYS)
+    {
+        let dateRange = [];
+        if (typeof(HOLIDAYS[key]) === 'string')
+        {
+            dateRange = [HOLIDAYS[key], HOLIDAYS[key]];
+        }
+        else
+        {
+            dateRange = HOLIDAYS[key];
+        }
+
+        EXRULES.push({
+            freq: "hourly",
+            dtstart: dateRange[0] + "T00:00",
+            until: dateRange[1] + "T23:00"
+        });
+
+        HOLIDAY_EVENTS.push({
+            title: key,
+            rrule: {
+                freq: "daily",
+                dtstart: dateRange[0],
+                until: dateRange[1]
+            },
+            backgroundColor: "#FF0000"
         });
     }
 
-    window.calendar = new FullCalendar.Calendar(
+    try {
+        let date = new Date(today);
+        date.setDate(1);
+        let dateFrom = date.toISOString().split("T")[0].replaceAll("-", ".");
+        date.setMonth(date.getMonth() + 1);
+        date.setDate(0);
+        let dateTo = date.toISOString().split("T")[0].replaceAll("-", ".");
+
+        const response = await fetch("https://apergia.gr/api/v1/events/eventSearch?dateFrom=" + dateFrom + "&dateTo=" + dateTo + "&isArchive=false");
+        if (!response.ok)
+        {
+            throw new Error(`Apergia.gr status: ${response.status}`);
+        }
+
+        const json = await response.json();
+        json.listEvents.forEach((ev) => {
+            STRIKES.push({
+                title: "ΑΠΕΡΓΙΑ - " + ev.title,
+                url: ev.url,
+                start: new Date(ev.dateFromMs).toISOString(),
+                end: new Date(ev.dateToMs).toISOString(),
+                backgroundColor: "#FF0000"
+            });
+        });
+    }
+    catch (error)
+    {
+        console.log(error);
+    }
+
+    var ALL_EVENTS = [
+                course_event(0, "19:00", "22:00", "TMF250", "Σ. Καπερώνης",    "Μέσα και Ψηφιακές Εφαρμογές: το design ως μέσο επικοινωνίας", "#4659B7"),
+                course_event(1, "16:00", "19:00", "TMF355", "Μ. Ψύλλα",        "Δημόσιες πολιτικές και επικοινωνία", "#B74659"),
+                course_event(1, "19:00", "22:00", "TMF245", "Ν. Λέανδρος",     "Παραγωγή Περιεχομένου και Επιχειρήσεις Μέσων", "#B7B746"),
+                course_event(2, "16:00", "19:00", "TMF280", "Γ. Μ. Κλήμης",    "Διοίκηση και Μάρκετινγκ", "#59B746"),
+                course_event(2, "19:00", "22:00", "TMF353", "Δ. Ιορδάνογλου",  "Ηγεσία και Επιχειρηματικότητα στη Δημοσιογραφία (Ι)", "#B746B7", SEMESTER_START, "2024-11-14"),
+                course_event(4, "16:00", "19:00", "TMF353", "Μπ. Τσακαρέστου", "Ηγεσία και Επιχειρηματικότητα στη Δημοσιογραφία (ΙΙ)", "#B746B7", "2024-11-28", SEMESTER_END),
+                course_event(3, "16:00", "19:00", "TMF352", "Α. Γαζή",         "Μεθοδολογία της Έρευνας στα Μέσα και την Επικοινωνία (ΥΠ)", "#46B7B7"),
+            ].concat(HOLIDAY_EVENTS).concat(STRIKES);
+
+    var calendar = new FullCalendar.Calendar(
         document.querySelector("#calendar"),
         {
             initialView: 'listWeek',
@@ -43,21 +159,44 @@ window.onload = () => {
             {
                 left: 'prev,next',
                 center: 'title',
-                right: 'listWeek,dayGridWeek,dayGridMonth'
+                right: 'listWeek,dayGridMonth'
             },
             locale: 'el',
-            eventDisplay: 'block',
             hiddenDays: [0, 6],
-            events: [
-                lesson_event("Σ. Καπερώνης", "Μέσα και Ψηφιακές Εφαρμογές: το design ως μέσο επικοινωνίας", 1, "19:00", "22:00", "#4659B7"),
-                lesson_event("Μ. Ψύλλα", "Δημόσιες πολιτικές και επικοινωνία", 2, "16:00", "19:00", "#B74659"),
-                lesson_event("Ν. Λέανδρος", "Παραγωγή Περιεχομένου και Επιχειρήσεις Μέσων", 2, "19:00", "22:00", "#B7B746"),
-                lesson_event("Γ. Μ. Κλήμης", "Διοίκηση και Μάρκετινγκ", 3, "16:00", "19:00", "#59B746"),
-                lesson_event("Δ. Ιορδάνογλου", "Ηγεσία και Επιχειρηματικότητα στη Δημοσιογραφία (Ι)", 3, "19:00", "22:00", "#B746B7", SEMESTER_START, "2024-11-14"),
-                lesson_event("Μπ. Τσακαρέστου", "Ηγεσία και Επιχειρηματικότητα στη Δημοσιογραφία (ΙΙ)", 5, "16:00", "19:00", "#B746B7", "2024-11-28", SEMESTER_END),
-                lesson_event("Α. Γαζή", "Μεθοδολογία της Έρευνας στα Μέσα και την Επικοινωνία (ΥΠ)", 4, "16:00", "19:00", "#46B7B7"),
-            ]
+            eventDisplay: 'block',
+            events: ALL_EVENTS
+        }
+    );
+
+    var agenda = new FullCalendar.Calendar(
+        document.querySelector("#today_events"),
+        {
+            initialView: 'listDay',
+            height: 200,
+            headerToolbar: false,
+            locale: 'el',
+            events: ALL_EVENTS
         }
     );
     calendar.render();
+    agenda.render();
+
+    let dayOfWeek = document.createElement("DIV");
+    dayOfWeek.innerHTML = today.toLocaleString("el-GR", {weekday: "long"});
+
+    let day = document.createElement("DIV");
+    day.innerHTML = today.getDate();
+
+    let month = document.createElement("DIV");
+    month.innerHTML = today.toLocaleString("el-GR", {month: "long"});
+
+    let date = document.querySelector("#today_day");
+    date.appendChild(dayOfWeek);
+    date.appendChild(day);
+    date.appendChild(month);
+
+    if (today.getDay() == 0 || today.getDay() == 6)
+    {
+        date.classList.add("holiday");
+    }
 };
