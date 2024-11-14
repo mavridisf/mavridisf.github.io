@@ -4,7 +4,7 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>ΠΜΣ «Κοινωνία της Πληροφορίας Μέσα και Τεχνολογία» 2024-25</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?r1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -14,8 +14,21 @@
     <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@6.1.15/index.global.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/list@6.1.15/index.global.min.js"></script>
     <script src='https://cdn.jsdelivr.net/npm/@fullcalendar/rrule@6.1.15/index.global.min.js'></script>
-    <script src="script.js?r1"></script>
+    <script src="script.js?r2"></script>
     <!--
+        2024/11/14  * Σύνδεσμοι: εμότζι και χρωματάκια
+                    * Σύνδεσμοι: προσδιορισμός μορφής αρχείων
+                    * Σύνδεσμοι: +Βιβλιοθήκη: Οδηγίες πρόσβασης σε ηλ. πηγές
+                    * Σύνδεσμοι: +Βιβλιοθήκη: Κατάλογοι πηγών ελεγχόμενης/ανοιχτής πρόσβασης
+                    * Σύνδεσμοι: +Οδηγός APA, 7η έκδοση στα ελληνικά
+                    * Σύνδεσμοι: +SCOPUS
+                    * Σύνδεσμοι: +HEAL-Link
+                    * Σύνδεσμοι: +ΜΙΤΟΣ
+                    * Σύνδεσμοι: +Εθνική Βιβλιοθήκη: Κατάλογος KOHA
+                    * Σύνδεσμοι: +Εθνική Βιβλιοθήκη: Ευρετήριο Ψηφιοποιημένων Περιοδικών
+                    * Σύνδεσμοι: +Zotero
+                    * Σύνδεσμοι: +Mendeley
+
         2024/11/05  * Οδηγός βιβλιοθήκης
                     * Σύνδεσμοι: +Google Scholar
                     * Σύνδεσμοι: +JSTOR
@@ -78,32 +91,42 @@
 
       <h2>Σύνδεσμοι</h2>
       <div id="links">
-        <h3>Γενικές Πληροφορίες</h3>
+        <h3 id="links_generic">🎓&nbsp;&nbsp;Γενικές Πληροφορίες</h3>
         <a href="https://www.panteion.gr/" target="_blank">Πάντειο Πανεπιστήμιο</a>
         <a href="https://cmc.panteion.gr/" target="_blank">Τμήμα Επικοινωνίας Μέσων και Πολιτισμού</a>
         <a href="https://infosocietymediatechnology.tilda.ws/" target="_blank">ΠΜΣ «Κοινωνία της Πληροφορίας Μέσα και Πολιτισμός»</a>
-        <a href="https://cmc.panteion.gr/images/2024/Consultation_hours_winter_2024.pdf" target="_blank">Ώρες γραφείου καθηγητών</a>
+        <a href="https://cmc.panteion.gr/images/2024/Consultation_hours_winter_2024.pdf" target="_blank">Ώρες γραφείου καθηγητών (PDF)</a>
 
-        <h3>Σπουδές</h3>
+        <h3 id="links_study">📚&nbsp;&nbsp;Σπουδές</h3>
         <a href="https://openeclass.panteion.gr/" target="_blank">Open eClass</a>
         <a href="https://cmc.panteion.gr/news-and-announcements/metaptyxiakoy" target="_blank">Ανακοινώσεις Μεταπτυχιακού</a>
-        <a href="https://cmc.panteion.gr/images/Postgraduate/pms_programma_spoudon_2024-2025.pdf" target="_blank">Πρόγραμμα σπουδών ΠΜΣ 2024-25</a>
-        <a href="https://cmc.panteion.gr/images/Postgraduate/Odigos_Spoudon_PMS_2023-24.pdf" target="_blank">Οδηγός σπουδών ΠΜΣ 2023-24</a>
+        <a href="https://cmc.panteion.gr/images/Postgraduate/pms_programma_spoudon_2024-2025.pdf" target="_blank">Πρόγραμμα σπουδών ΠΜΣ 2024-25 (PDF)</a>
+        <a href="https://cmc.panteion.gr/images/Postgraduate/Odigos_Spoudon_PMS_2023-24.pdf" target="_blank">Οδηγός σπουδών ΠΜΣ 2023-24 (PDF)</a>
         <a href="https://sis.panteion.gr/unistudent" target="_blank">Δηλώσεις μαθημάτων/Βαθμολογίες</a>
 
-        <h3>Βιβλιογραφία</h3>
+        <h3 id="links_bib_inf">💡&nbsp;&nbsp;Βιβλιογραφία - Πληροφορίες</h3>
         <a href="https://library.panteion.gr/" target="_blank">Βιβλιοθήκη Παντείου Πανεπιστημίου</a>
-        <a href="http://pandemos.panteion.gr/index.php?lang=el&op=search_collections&type=cid&page=1&match=exact&q=isMemberOf-cid:14,isMemberOfCollection-cid:8&sort=title&asc=ASC" target="_blank">ΠΑΝΔΗΜΟΣ - Παντειακές Δημοσιεύσεις - Συλλογή «Μεταπτυχιακές εργασίες»</a>
+        <a href="https://library.panteion.gr/wp-content/uploads/2023/01/%CE%9F%CE%B4%CE%B7%CE%B3%CE%AF%CE%B5%CF%82-%CE%B3%CE%B9%CE%B1-%CF%84%CE%B7%CE%BD-%CF%80%CF%81%CF%8C%CF%83%CE%B2%CE%B1%CF%83%CE%B7.docx" target="_blank">Βιβλιοθήκη - Οδηγίες πρόσβασης σε ηλεκτρονικές πηγές (DOCX)</a>
+        <a href="https://library.panteion.gr/%CF%85%CF%80%CE%B7%CF%81%CE%B5%CF%83%CE%AF%CE%B5%CF%82/%CF%83%CF%85%CE%B3%CE%B3%CF%81%CE%B1%CF%86%CE%AE-%CE%B5%CF%81%CE%B3%CE%B1%CF%83%CE%B9%CF%8E%CE%BD/" target="_blank">Βιβλιοθήκη - Οδηγός συγγραφής εργασιών</a>
+        <a href="https://www.lib.auth.gr/sites/default/files/docs_files/APA_7th_Ed.pdf" target="_blank">Οδηγός APA, 7η έκδοση (PDF, ελληνική μετάφραση)</a>
+        <a href="https://openeclass.panteion.gr/modules/document/file.php/TMF352/201806_APA_Complete_final.pdf" target="_blank">Οδηγός APA, 7η έκδοση (PDF, αγγλικό πρωτότυπο)</a>
+
+        <h3 id="links_bib_src">🔎&nbsp;&nbsp;Βιβλιογραφία - Πηγές</h3>
+        <a href="https://library.panteion.gr/%CE%B7%CE%BB%CE%B5%CE%BA%CF%84%CF%81%CE%BF%CE%BD%CE%B9%CE%BA%CE%AD%CF%82-%CF%80%CE%B7%CE%B3%CE%AD%CF%82-%CF%80%CE%BB%CE%B7%CF%81%CE%BF%CF%86%CF%8C%CF%81%CE%B7%CF%83%CE%B7%CF%82/%CE%B2%CE%AC%CF%83%CE%B5%CE%B9%CF%82-%CE%B4%CE%B5%CE%B4%CE%BF%CE%BC%CE%AD%CE%BD%CF%89%CE%BD/" target="_blank">Βιβλιοθήκη - Κατάλογος πηγών με ελεγχόμενη πρόσβαση</a>
+        <a href="https://library.panteion.gr/%CE%B7%CE%BB%CE%B5%CE%BA%CF%84%CF%81%CE%BF%CE%BD%CE%B9%CE%BA%CE%AD%CF%82-%CF%80%CE%B7%CE%B3%CE%AD%CF%82-%CF%80%CE%BB%CE%B7%CF%81%CE%BF%CF%86%CF%8C%CF%81%CE%B7%CF%83%CE%B7%CF%82/%CE%B7%CE%BB%CE%B5%CE%BA%CF%84%CF%81%CE%BF%CE%BD%CE%B9%CE%BA%CE%AC-%CF%80%CE%B5%CF%81%CE%B9%CE%BF%CE%B4%CE%B9%CE%BA%CE%AC/" target="_blank">Βιβλιοθήκη - Κατάλογος πηγών με ανοιχτή πρόσβαση</a>
         <a href="https://scholar.google.com" target="_blank">Google Scholar</a>
         <a href="https://jstor.org" target="_blank">JSTOR</a>
+        <a href="https://scopus.com" target="_blank">SCOPUS</a>
+        <a href="https://www.heal-link.gr" target="_blank">HEAL-Link (ΣΕΑΒ)</a>
+        <a href="https://opac.seab.gr" target="_blank">ΜΙΤΟΣ - Ενιαίος κατάλογος ΣΕΑΒ</a>
+        <a href="https://koha.nlg.gr" target="_blank">Εθνική Βιβλιοθήκη - Κατάλογος (KOHA)</a>
+        <a href="https://www.nlg.gr/static-page/eyretirio-psifiopoiimenon-periodikon/" target="_blank">Εθνική Βιβλιοθήκη - Ευρετήριο Ψηφιοποιημένων Περιοδικών</a>
+        <a href="http://pandemos.panteion.gr/index.php?lang=el&op=search_collections&type=cid&page=1&match=exact&q=isMemberOf-cid:14,isMemberOfCollection-cid:8&sort=title&asc=ASC" target="_blank">ΠΑΝΔΗΜΟΣ - Παντειακές Δημοσιεύσεις</a>
         <a href="https://www.dropbox.com/scl/fo/35wfe3xfxkbzhf9g4nqtl/ANiIAKh9uDx0Lyqzvc4jgyg?e=1&fbclid=IwZXh0bgNhZW0CMTEAAR093dXyLAgC4EGJPSqaLJVIEZxme8yuANV9V5CBzBn7d5hWs6gZMw9EiSc_aem_JVt32WtI42hmEEtkfhghvg&rlkey=nzdmyenwv66xrwnr6nulu8z50&st=bmd9cgjf&dl=0" target="_blank">Dropbox με χρήσιμα βιβλία <small>(Credit: Δ. Αλαγιάννης)</small></a>
-        <a href="https://openeclass.panteion.gr/modules/document/file.php/TMF352/201806_APA_Complete_final.pdf" target="_blank">Οδηγός APA (επίσημος, στα αγγλικά)</a>
-        <a href="https://library.panteion.gr/%CF%85%CF%80%CE%B7%CF%81%CE%B5%CF%83%CE%AF%CE%B5%CF%82/%CF%83%CF%85%CE%B3%CE%B3%CF%81%CE%B1%CF%86%CE%AE-%CE%B5%CF%81%CE%B3%CE%B1%CF%83%CE%B9%CF%8E%CE%BD/" target="_blank">Οδηγός συγγραφής εργασιών (περιέχει οδηγίες για τη βιβλιογραφία)</a>
 
-
-
-
-
+        <h3 id="links_bib_sfw">📋&nbsp;&nbsp;Βιβλιογραφία - Λογισμικό διαχείρισης</h3>
+        <a href="https://www.zotero.org" target="_blank">Zotero (ΕΛ/ΛΑΚ)</a>
+        <a href="https://www.mendeley.com" target="_blank">Mendeley</a>
       </div>
 
       <h2 class="collapsed">Αναζήτηση και πρόσβαση σε βιβλιογραφία</h2>

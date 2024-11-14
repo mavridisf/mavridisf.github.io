@@ -220,6 +220,12 @@ a
     text-decoration: none !important;
 }
 
+#links_generic { background: #eeccee !important; border-color: #ffddff !important; }
+#links_study   { background: #cceeee !important; border-color: #ddffff !important; }
+#links_bib_inf { background: #eecccc !important; border-color: #ffdddd !important; }
+#links_bib_src { background: #cceecc !important; border-color: #ddffdd !important; }
+#links_bib_sfw { background: #ccccee !important; border-color: #ddddff !important; }
+
 a:hover
 {
     text-decoration: underline !important;
@@ -229,4 +235,5 @@ a:hover
 {
     h1 { font-size: 1.25rem !important; }
     .fc-toolbar-title { font-size: 1rem !important; }
+    #today .fc-list-event-time { display: none; }
 }
