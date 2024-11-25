@@ -12,7 +12,7 @@ const SEMESTER_START = "2024-10-07",
         "Αγίου Πνεύματος":     "2025-06-09"
       };
 
-var EXRULES = [], HOLIDAY_EVENTS = [], STRIKES = [];
+var EXRULES = [], HOLIDAY_EVENTS = [], STRIKES = [], NAMEDAYS = [];
 
 function course_event(dayOfWeek, timeStart, timeEnd, courseCode, title, desc, color, from = SEMESTER_START, to = SEMESTER_END, duration = "03:00")
 {
@@ -110,6 +110,7 @@ window.onload = async () => {
         });
     }
 
+    // Απεργίες
     try {
         let date = new Date(today);
         date.setDate(1);
@@ -140,6 +141,38 @@ window.onload = async () => {
         console.log(error);
     }
 
+    // Εορτολόγιο
+    $.ajax({
+        url: "./namedays/" + ("0" + (today.getMonth() + 1)).slice(-2) + ".json",
+        type: "GET",
+        format: "json",
+        dataType: "json",
+        cache: true,
+        success: function(j) {
+            j["namedays"].forEach((day) => {
+                let names = day["names"].join(", ");
+                if (!names.length) return;
+
+                let dateParts = day["date"].split("/"),
+                    dateY = dateParts[2],
+                    dateM = dateParts[1],
+                    dateD = dateParts[0],
+                    date = new Date(dateY, dateM - 1, dateD, 0, 0, 0);
+                NAMEDAYS.push({
+                    title: "ΕΟΡΤΗ - " + names,
+                    start: date,
+                    backgroundColor: "#0000FF",
+                    allDay: true
+                });
+            })
+            calendar.addEventSource(NAMEDAYS);
+            agenda.addEventSource(NAMEDAYS);
+        },
+        error: function(e) {
+            console.log("cannot get namedays");
+        }
+    });
+
     var ALL_EVENTS = [
                 course_event(0, "19:00", "22:00", "TMF250", "Σ. Καπερώνης",    "Μέσα και Ψηφιακές Εφαρμογές: το design ως μέσο επικοινωνίας", "#4659B7", SEMESTER_START, "2024-11-18"),
                 course_event(0, "19:00", "22:00", "TMF250", "Σ. Καπερώνης",    "Μέσα και Ψηφιακές Εφαρμογές: το design ως μέσο επικοινωνίας", "#4659B7", "2024-12-09", SEMESTER_END),
@@ -165,7 +198,21 @@ window.onload = async () => {
             locale: 'el',
             hiddenDays: [0, 6],
             eventDisplay: 'block',
-            events: ALL_EVENTS
+            events: ALL_EVENTS,
+            eventClick: (info) => {
+                if (info.event.title.includes("ΕΟΡΤΗ") || info.event.title.includes("ΑΠΕΡΓΙΑ"))
+                {
+                    if (info.event.url)
+                    {
+                        info.jsEvent.preventDefault();
+                        if (confirm(info.event.title + "\n\nΠερισσότερες πληροφορίες;\n\n"))
+                        {
+                            window.open(info.event.url);
+                        }
+                    }
+                    else alert(info.event.title);
+                }
+            }
         }
     );
 
