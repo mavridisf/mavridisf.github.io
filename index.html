@@ -3,42 +3,44 @@
 <head>
   <meta charset="utf-8">
   <title>Μαυρίδης Φίλιππος</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Didact+Gothic">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/fontawesome.min.css" integrity="sha512-lauN4D/0AgFUGvmMR+knQnbOADyD/XuQ8VF18I8Ll0+TLvsujshyxvU+uzogmQbSq6qJd5jnUdYtK8ShxXMlSg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/solid.min.css" integrity="sha512-bdqdas3Yr82pkTg5i0X1gcAT3tBXz/8H3J1ec7RyEKAvr/YiSCJNV2dnkukmL8CicjKb9rxmd+ILK8Kg2o2wvQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/brands.min.css" integrity="sha512-7rXIvd/xj1FnI2zKQjjXzDFxC4twqBByp8yxOgEQJs4C/aNzNyoQsOO7VxH0RgYNhbAYLJLwzqslaP50KTTHIQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
   <link rel="stylesheet" href="style.css">
+  <script src="common.js"></script>
 </head>
 <body>
-  <nav>
-    <a href='CV.pdf'>Βιογραφικό</a>&nbsp;|&nbsp;
-    <a href='https://www.linkedin.com/in/mavridis-philippe/'>LinkedIn</a>&nbsp;|&nbsp;
-    <a href='contact.html'>Επικοινωνία</a>
-  </nav>
-  <h1>Γειά σας!</h1>
-  <p><big>Είμαι ο <strong>Μαυρίδης Φίλιππος</strong> και είμαι μεταπτυχιακός φοιτητής στο <a href="https://cmc.panteion.gr" target="_blank">Τμήμα Επικοινωνίας, Μέσων και Πολιτισμού</a> του <a href="https://www.panteion.gr" target="_blank">Παντείου Πανεπιστημίου</a>.</big>
-  <blockquote>
-    <p>Το υπόβαθρό μου είναι η τεχνολογία και το πάθος μου ο πολιτισμός. Διαθέτω τεχνικές και οργανωσιακές γνώσεις από διάφορα πεδία, στα οποία συµπεριλαµβάνονται η ανάλυση µεγάλων όγκων δεδοµένων (big data), η ανάπτυξη και διαχείριση ιστοχώρων και webapps, η σελιδοποίηση, τα διανυσµατικά γραφικά, η οργάνωση της πληροφορίας, το µοντάζ, η σύνθεση μουσικής αλλά και η διοργάνωση εκδηλώσεων.
-  </blockquote>
-    <hr>
-    <p><b>Ο ιστότοπος βρίσκεται υπό κατασκευή</b>. Ευχαριστώ για την κατανόηση!
+  <aside>
+    <a href="index.html"><img class="me" src="me.jpg" alt="Φωτογραφία"></a>
+    <h1>Φίλιππος Μαυρίδης</h1>
+    <nav>
+      <a href='CV.pdf'><i class="fa-solid fa-file-pdf"></i><span>Λήψη βιογραφικού</span></a>
+      <a href="portfolio.html"><i class="fa-solid fa-briefcase"></i><span>Χαρτοφυλάκιο</span></a>
+      <a href='https://www.linkedin.com/in/mavridis-philippe/'><i class="fa-brands fa-linkedin"></i><span>LinkedIn</span></a>
+      <a href='contact.html'><i class="fa-solid fa-envelope-open-text"></i><span>Επικοινωνία</span></a>
+      <a class="toggle-side" onclick="toggleSidebar()"><i class="fa-solid fa-angle-left"></i><span>Απόκρυψη</span></a>
+    </nav>
+  </aside>
+  <main>
+    <blockquote>
+      Το υπόβαθρό μου είναι η τεχνολογία και το πάθος μου ο πολιτισμός. Διαθέτω τεχνικές και οργανωσιακές γνώσεις από διάφορα πεδία, στα οποία συµπεριλαµβάνονται το ψηφιακό μάρκετινγκ, η ανάπτυξη και διαχείριση ιστοχώρων και webapps, η σελιδοποίηση, τα διανυσµατικά γραφικά, η ανάλυση µεγάλων όγκων δεδοµένων (big data), η οργάνωση της πληροφορίας, το µοντάζ, η σύνθεση μουσικής αλλά και η διοργάνωση εκδηλώσεων.
+    </blockquote>
+    <h2>Σπουδές</h2>
+    <ul>
+      <li><b>Mεταπτυχιακός φοιτητής</b> (σήμερα)
+        <br>Τμήμα Επικοινωνίας, Μέσων και Πολιτισμού
+        <br>Πάντειο Πανεπιστήμιο Κοινωνικών και Πολιτικών Σπουδών
+      <li><b>Πτυχίο Επικοινωνίας, Μέσων και Πολιτισμού</b> (2024)
+        <br>Πάντειο Πανεπιστήμιο Κοινωνικών και Πολιτικών Σπουδών
+    </ul>
+
+    <a href="CV.pdf">Διαβάστε περισσότερα στο βιογραφικό μου σημείωμα &gt;</a>
+  </main>
+  <footer>Copyright &copy; 2024 Μαυρίδης Φίλιππος</footer>
 </body>
-<script>
-window.onload = () => {
-    let greeting = document.querySelector("h1"),
-        hrs = (new Date()).getHours();
-
-    if (hrs > 17)
-    {
-        greeting.innerHTML = "Καλό απόγευμα!";
-    }
-
-    else if (hrs > 14)
-    {
-        greeting.innerHTML = "Καλησπέρα!";
-    }
-
-    else
-    {
-        greeting.innerHTML = "Καλημέρα!";
-    }
-}
-</script>
 </html>
+<!-- kate: replace-tabs false; indent-width: 2; -->
