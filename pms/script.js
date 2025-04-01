@@ -1,3 +1,4 @@
+window.onerror = function (e) { alert(e); }
 const HOLIDAYS = {
         "Εθνική Επέτειος":     "2024-10-28",
         "Πολυτεχνείο":         ["2024-11-15", "2024-11-17"],
@@ -19,7 +20,6 @@ var EXRULES = [], HOLIDAY_EVENTS = [], STRIKES = [], NAMEDAYS = [];
 
 function course_event(semester, dayOfWeek, timeStart, timeEnd, courseCode, title, desc, color, from = null, to = null, duration = "03:00")
 {
-        try{
     if (from === null) { from = SEMESTERS[semester][0]; }
     if (to === null)   { to   = SEMESTERS[semester][1]; }
 
@@ -39,8 +39,6 @@ return {
         exrule: EXRULES,
         url: "https://openeclass.panteion.gr/courses/" + courseCode
     };
-}        
-        catch(e) { alert(e); }
 }
 
 function set_tab_shown(header, show, store_state = true)
