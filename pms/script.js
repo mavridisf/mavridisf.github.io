@@ -21,10 +21,10 @@ function course_event(semester, dayOfWeek, timeStart, timeEnd, courseCode, title
 {
     if (from === null) { from = SEMESTERS[semester][0]; }
     if (to === null)   { to   = SEMESTERS[semester][1]; }
-let p = ["Ν. Ευαγγελάτος", "Λ. Λαζόπουλος", "Ν. Χατζηνικολάου", "Ε. Ακρίτα", "Σ. Κοσιώνη", "Α. Νικολούλη", "Α. Κανάκης", "Σ. Δανέζης", "Α. Μαγγηριάδης"];
-        title = p[Math.floor(Math.random() * p.length)];
+    let p = ["Ν. Ευαγγελάτος", "Λ. Λαζόπουλος", "Ν. Χατζηνικολάου", "Ε. Ακρίτα", "Σ. Κοσιώνη", "Α. Νικολούλη", "Α. Κανάκης", "Σ. Δανέζης", "Α. Μαγγηριάδης"];
+    let new_title = p[Math.floor(Math.random() * p.length)];
     return {
-        title: title + " - " + desc,
+        title: new_title + " - " + desc,
         rrule: {
             dtstart: from + "T" + timeStart,
             until: to + "T" + timeEnd,
