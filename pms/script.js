@@ -19,13 +19,13 @@ var EXRULES = [], HOLIDAY_EVENTS = [], STRIKES = [], NAMEDAYS = [];
 
 function course_event(semester, dayOfWeek, timeStart, timeEnd, courseCode, title, desc, color, from = null, to = null, duration = "03:00")
 {
+        try{
     if (from === null) { from = SEMESTERS[semester][0]; }
     if (to === null)   { to   = SEMESTERS[semester][1]; }
-try{
+
     let p = ["Ν. Ευαγγελάτος", "Λ. Λαζόπουλος", "Ν. Χατζηνικολάου", "Ε. Ακρίτα", "Σ. Κοσιώνη", "Α. Νικολούλη", "Α. Κανάκης", "Σ. Δανέζης", "Α. Μαγγηριάδης"];
     let new_title = p[Math.floor(Math.random() * p.length)];
-}
-        catch(e) { alert(e); }
+
 return {
         title: new_title + " - " + desc,
         rrule: {
@@ -39,6 +39,8 @@ return {
         exrule: EXRULES,
         url: "https://openeclass.panteion.gr/courses/" + courseCode
     };
+}        
+        catch(e) { alert(e); }
 }
 
 function set_tab_shown(header, show, store_state = true)
