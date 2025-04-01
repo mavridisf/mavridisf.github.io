@@ -1,4 +1,4 @@
-window.onerror = function (e) { alert(e); }
+//window.onerror = function (e) { alert(e); }
 const HOLIDAYS = {
         "Εθνική Επέτειος":     "2024-10-28",
         "Πολυτεχνείο":         ["2024-11-15", "2024-11-17"],
@@ -23,7 +23,7 @@ function course_event(semester, dayOfWeek, timeStart, timeEnd, courseCode, title
     if (from === null) { from = SEMESTERS[semester][0]; }
     if (to === null)   { to   = SEMESTERS[semester][1]; }
 
-    let p = ["Ν. Ευαγγελάτος", "Λ. Λαζόπουλος", "Ν. Χατζηνικολάου", "Ε. Ακρίτα", "Σ. Κοσιώνη", "Α. Νικολούλη", "Α. Κανάκης", "Σ. Δανέζης", "Α. Μαγγηριάδης"];
+    let p = ["Ν. Ευαγγελάτος", "Λ. Λαζόπουλος", "Ν. Χατζηνικολάου", "Ε. Ακρίτα", "Κ. Εφήμερος", "Σ. Κοσιώνη", "Α. Νικολούλη", "Α. Κανάκης", "Σ. Δανέζης", "Α. Μαγγηριάδης", "Μ. Αναστασοπούλου", "Α. Πορτοσάλτε", "Ν. Μάνεσης", "Α. Παπαχελάς", "Μ. Τριανταφυλλόπουλος", "Τ. Στεφανίδου", "Λ. Κανέλλη"];
     let new_title = p[Math.floor(Math.random() * p.length)];
 
 return {
