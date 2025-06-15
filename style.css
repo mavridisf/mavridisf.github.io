@@ -1,8 +1,8 @@
 :root
 {
-    --body-background-color: #EAEAED;
+    --body-background-color: #FFE8E0;
     --body-text-color: #000000;
-    --side-hover-color: #CECECE;
+    --side-hover-color: #F2BEAC;
     --main-background-color: #FFFFFF;
     --main-text-color: #000000;
     --accent-color: #800000;
@@ -57,7 +57,7 @@ aside > nav a
     padding: .5em 1em;
     margin: .5em 0;
     text-decoration: none !important;
-    background: var(--body-background-color);
+    background: var(--main-background-color);
     transition: background .5s;
     border-radius: 1em;
 }
@@ -71,7 +71,7 @@ aside > h1,
 aside > nav a > span
 {
     overflow: hidden;
-    transition: max-width .5s, max-height .5s, opacity .5s;
+    transition: max-width .5s, max-height .5s, opacity .5s, box-shadow .5s;
     white-space: nowrap;
     max-width: 100%;
     max-height: 100%;
@@ -88,6 +88,7 @@ aside > nav a > i
 aside > nav a:hover
 {
     background: var(--side-hover-color);
+    box-shadow: .1em .1em .2em rgba(0, 0, 0, .5);
 }
 
 aside > nav a.toggle-side
@@ -108,6 +109,13 @@ aside > nav a.toggle-side > i
 .side-collapsed > aside img.me
 {
     max-width: 3em;
+}
+
+
+.side-collapsed > aside a
+{
+    background: transparent;
+    height: 2em;
 }
 
 .side-collapsed > aside a.toggle-side > i
@@ -160,6 +168,8 @@ b { font-weight: 500; }
 
 a { color: var(--accent-color) !important; }
 
+a > i { margin-right: .25em; }
+
 .side-collapsed > main
 {
     left: 3.5rem;
@@ -181,6 +191,21 @@ footer
     padding: 1.5em;
     text-align: center;
 }
+
+#design-gallery td
+{
+  padding: .5em;
+}
+
+#design-gallery td:first-child
+{
+  font-weight: bold;
+}
+
+img.preview { height: 5em; transition: transform .5s; }
+img.preview:hover { transform: scale(1.25, 1.25); }
+
+.sl-image { box-shadow: 0 0 .25em rgba(0, 0, 0, .5); }
 
 @media screen and (max-width: 40em)
 {
