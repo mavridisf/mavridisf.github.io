@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Λειτουργικά συστήματα και κατά κεφαλήν εισόδημα</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Philippe Mavridis">
+
+    <!-- CC-BY-SA 4.0 -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+    <script src="https://cdn.plot.ly/plotly-3.0.1.min.js" charset="utf-8"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="map.css">
+    <link rel="stylesheet" href="graph.css">
+
+    <script src="zen.js"></script>
+    <script src="assets.js"></script>
+    <script src="data.js"></script>
+    <script src="year.js"></script>
+    <script src="platform.js"></script>
+    <script src="main.js"></script>
+    <script src="map.js"></script>
+    <script src="graph.js"></script>
+    <script src="social.js"></script>
+  </head>
+  <body>
+    <noscript>
+      Για να προβληθεί σωστά η σελίδα θα πρέπει να ενεργοποιήσετε τη JavaScript.
+    </noscript>
+
+    <section id="Top">
+      <div id="os-flex">
+        <img data-asset="windows">
+        <img data-asset="linux">
+        <img data-asset="apple">
+        <img data-asset="android">
+      </div>
+      <h1>Λειτουργικά συστήματα και εισόδημα</h1>
+      <p><em>Η αγορά των λειτουργικών συστημάτων είναι ένας <strong>μικρός</strong> κόσμος.</em>
+      <p>Η τεράστια πολυπλοκότητα που παρουσιάζει η ανάπτυξη ενός λειτουργικού συστήματος
+      και οι μονοπωλιακές πρακτικές των μεγάλων παικτών την καθιστούν προορισμένη για λίγους.
+      <p>Είναι σχετικά διαδεδομένη η αντίληψη ότι το λειτουργικό σύστημα που χρησιμοποιεί κανείς
+      έχει κάποιο είδος σχέσης με την οικονομική κατάσταση του ατόμου αυτού.
+      <p><big>Είναι όμως έτσι;</big>
+    </section>
+
+    <!-- Δεδομένα Ιούνιος 2025 -->
+
+    <section id="Intro">
+      <div id="pc-os">
+        <img data-asset="windows">
+        <img data-asset="linux">
+        <img data-asset="pc">
+        <img data-asset="apple">
+        <img data-asset="android">
+      </div>
+      <p>Τα δημοφιλέστερα λειτουργικά συστήματα για ηλεκτρονικούς υπολογιστές παγκοσμίως είναι τα
+      Windows, ακολουθούμενα από τα macOS και τo ελεύθερο και ανοιχτού κώδικα Linux. Τα Android και
+      iOS είναι τα επικρατέστερα λειτουργικά συστήματα για κινητά και τάμπλετ.
+    </section>
+
+    <section id="Intro-OS">
+      <h1>Γνωρίστε τους παίκτες</h1>
+    </section>
+
+    <section id="Intro-Windows" class="os-intro">
+      <img data-asset="windows" style="height: 5em;">
+      <table><tbody>
+        <tr><td>Όνομα:</td><td>Windows</td></tr>
+        <tr><td>Ημ/νία γέννησης:</td><td>20 Νοεμβρίου 1985</td></tr>
+        <tr><td>Τόπος γέννησης:</td><td>Microsoft</td></tr>
+        <tr><td>Πηγαίος κώδικας:</td><td>κλειστός</td></tr>
+        <tr><td>Πυρήνας:</td><td>Windows NT</td></tr>
+        <tr><td>Συσκευές:</td><td>Η/Υ, server, τάμπλετ, κινητά, κονσόλες</td></tr>
+        <tr><td>Παγκόσμιο μερίδιο:</td><td>72,27% (Η/Υ)</td></tr>
+      </tbody></table>
+    </section>
+
+    <section id="Intro-MacOS" class="os-intro">
+      <img data-asset="apple" style="height: 5em;">
+      <table><tbody>
+        <tr><td>Όνομα:</td><td>macOS (πρώην OS X)</td></tr>
+        <tr><td>Ημ/νία γέννησης:</td><td>24 Μαρτίου 2001</td></tr>
+        <tr><td>Τόπος γέννησης:</td><td>Apple</td></tr>
+        <tr><td>Πηγαίος κώδικας:</td><td>εν μέρει ανοιχτός (Darwin)</td></tr>
+        <tr><td>Πυρήνας:</td><td>Darwin XNU</td></tr>
+        <tr><td>Συσκευές:</td><td>Η/Υ (Mac)</span></td></tr>
+        <tr><td>Παγκόσμιο μερίδιο:</td><td>15,26% (Η/Υ)</td></tr>
+      </tbody></table>
+    </section>
+
+    <section id="Intro-Linux" class="os-intro">
+      <img data-asset="linux" style="height: 5em;">
+      <table><tbody>
+        <tr><td>Όνομα:</td><td>Linux</td></tr>
+        <tr><td>Ημ/νία γέννησης:</td><td>25 Αυγούστου 1991</td></tr>
+        <tr><td>Τόπος γέννησης:</td><td>Γη</td></tr>
+        <tr><td>Πηγαίος κώδικας:</td><td>ανοιχτός</td></tr>
+        <tr><td>Πυρήνας:</td><td>Linux</td></tr>
+        <tr><td>Συσκευές:</td><td>Η/Υ, server, τάμπλετ, κινητά, κονσόλες, router,
+        <span class="spoiler">ψηφιακά ρολόγια, PDA, τηλεοράσεις, home cinema, ψηφιακά κιόσκια,
+        Steam Deck, υπερυπολογιστές, mainframes, υπολογιστές πτήσης SpaceX, υπολογιστές αυτοκινήτων,
+        αριθμομηχανές, ψυγεία, ψηφιακές κορνίζες, το Large Hadron Collider κ.ά.</span></td></tr>
+        <tr><td>Παγκόσμιο μερίδιο:</td><td>4,12% (Η/Υ)</td></tr>
+      </tbody></table>
+    </section>
+
+    <section id="Intro-Android" class="os-intro">
+      <img data-asset="android" style="height: 5em;">
+      <table><tbody>
+        <tr><td>Όνομα:</td><td>Android</td></tr>
+        <tr><td>Ημ/νία γέννησης:</td><td>23 Σεπτεμβρίου 2008</td></tr>
+        <tr><td>Τόπος γέννησης:</td><td>Android Inc. (εξαγοράστηκε από την Google)</td></tr>
+        <tr><td>Πηγαίος κώδικας:</td><td>εν μέρει ανοιχτός (AOSP)</td></tr>
+        <tr><td>Πυρήνας:</td><td>Linux (τροποποιημένος)</td></tr>
+        <tr><td>Συσκευές:</td><td>Η/Υ, τάμπλετ, κινητά, κονσόλες</td></tr>
+        <tr><td>Παγκόσμιο μερίδιο:</td><td>71,24% (κινητές συσκευές)</td></tr>
+      </tbody></table>
+    </section>
+
+    <section id="Intro-iOS" class="os-intro">
+      <img data-asset="apple" style="height: 5em;">
+      <table><tbody>
+        <tr><td>Όνομα:</td><td>iOS</td></tr>
+        <tr><td>Ημ/νία γέννησης:</td><td>17 Ιουνίου 2007</td></tr>
+        <tr><td>Τόπος γέννησης:</td><td>Apple</td></tr>
+        <tr><td>Πηγαίος κώδικας:</td><td>εν μέρει ανοιχτός (Darwin)</td></tr>
+        <tr><td>Πυρήνας:</td><td>Darwin XNU</td></tr>
+        <tr><td>Συσκευές:</td><td>τάμπλετ (iPad), κινητά (iPhone)</td></tr>
+        <tr><td>Παγκόσμιο μερίδιο:</td><td>28,25% (κινητές συσκευές)</td></tr>
+      </tbody></table>
+    </section>
+
+    <section id="OS-GDP">
+      <h1>Ας βάλουμε τα δεδομένα σε μια τάξη...</h1>
+    </section>
+
+    <section id="OS-GDP-Graph">
+      <h1>...με ένα γράφημα</h1>
+      <div id="graph"></div>
+      <p class="tip">Φέρτε τον κέρσορα πάνω από ένα σημείο για να δείτε τη χώρα,
+      το κατά κεφαλήν ΑΕΠ και το λειτουργικό σύστημα. Χρησιμοποιήστε τα στοιχεία
+      ελέγχου στα δεξιά για να διαλέξετε σύνολο δεδομένων και τον τρόπο οπτικοποίησης.
+      Χρησιμοποιήστε τα εργαλεία πάνω δεξιά για να εξερευνήσετε τα δεδομένα.
+    </section>
+
+    <section id="OS-GDP-Comment-1">
+      <img data-asset="apple" style="height: 5em;">
+      <p><strong>Χώρες με υψηλότερο κατά κεφαλήν ΑΕΠ φαίνεται να δείχνουν
+      μεγαλύτερη προτίμηση στα λειτουργικά συστήματα macOS και iOS.</strong>
+      <p>Τα Windows και Android μπορεί να παραμένουν τα δημοφιλέστερα ΛΣ στις
+      περισσότερες χώρες του κόσμου, ωστόσο στις χώρες με υψηλό μέσο εισόδημα
+      τα προϊόντα της Apple απολαμβάνουν αυξημένη δημοφιλία σε σχέση με τις
+      χώρες που έχουν μικρότερα οικονομικά μεγέθη. Η τάση αυτή, λιγότερο στους
+      Η/Υ και πολύ περισσότερο στις κινητές συσκευές, δείχνει μια τάση προτίμησης
+      για πιο ακριβές συσκευές στις ευπορότερες χώρες αναλογική με το κατά κεφαλήν
+      ΑΕΠ.
+    </section>
+
+    <section id="OS-GDP-Comment-2">
+      <div class="inline-img">
+        <img data-asset="windows" style="height: 5em;">
+        <img data-asset="android" style="height: 5em;">
+      </div>
+      <p><strong>Οι χώρες με χαμηλότερο ΑΕΠ προτιμούν Windows και Android.</strong>
+      <p>Παρά την ύπαρξη φτηνότερων εναλλακτικών, όπως η αναβίωση παλιότερων συσκευών
+      με την εγκατάσταση Linux και η αγορά κινητών με πλήκτρα που τρέχουν το ΛΣ KaiOS,
+      οι πιο αδύναμες αγορές προτιμούν τα Windows και Android.
+      <p>Αυτό μπορεί να εξηγηθεί από παράγοντες, όπως το εύρος των διαθέσιμων low-range
+      και mid-range συσκευών που διατίθενται στην αγορά με τα συστήματα αυτά, τις
+      περιορισμένες δυνατότητες που προσφέρουν οι εναλλακτικές λόγω του μικρού αριθμού
+      των διαθέσιμων εφαρμογών, καθώς και την έλλειψη τεχνογνωσίας που απαιτείται για
+      την εγκατάσταση νέου λειτουργικού συστήματος σε μια συσκευή.
+    </section>
+
+    <section id="OS-Map">
+      <h2>Ο παγκόσμιος χάρτης των λειτουργικών συστημάτων</h2>
+      <div id="map"></div>
+    </section>
+
+    <section id="OS-Map-Comment-1">
+      <div class="inline-img">
+        <img data-asset="windows" style="height: 5em;">
+        <img data-asset="apple" style="height: 5em;">
+      </div>
+      <p>Στον τομέα των υπολογιστών, η κυριαρχία των Windows στον παγκόσμιο χάρτη είναι αδιαμφισβήτητη,
+      με την Apple να έρχεται δεύτερη στις περισσότερες χώρες του κόσμου.
+      <p>Ο άγραφος «κανόνας» φαίνεται να παραμένει το λειτουργικό σύστημα της Microsoft,
+      κάτι που οφείλεται στο πλήθος των διαθέσιμων εφαρμογών, στο τεράστιο μερίδιο υπολογιστών
+      στην αγορά όπου είναι προεγκατεστημένο και το γεγονός ότι δεν έχει ουσιαστικό ανταγωνιστή
+      σε αυτή την αγορά.
+      <p>Το macOS περιορίζεται στις μηχανές της Apple οι οποίες έχουν αυξημένο κόστος σε
+      σχέση με άλλες, ενώ τα Linux δεν προωθούνται ενεργά παρά μόνο από λίγους κατασκευαστές
+      -όπως η Dell- και σε πολύ συγκεκριμένα μοντέλα υπολογιστών.
+    </section>
+    <section id="OS-Map-Comment-2">
+      <div class="inline-img">
+        <img data-asset="android" style="height: 5em;">
+        <img data-asset="apple" style="height: 5em;">
+      </div>
+      <p>Η αγορά των κινητών συσκευών ουσιαστικά χωρίζεται ανάμεσα σε δύο παίκτες, τα iPhone που
+      της Apple που τρέχουν το iOS και την πληθώρα των συσκευών που τρέχουν κάποια εκδοχή του
+      συστήματος Android.
+    </section>
+    <section id="Outro">
+    <h1>Google, Apple και Microsoft μονοπωλούν την αγορά</h1>
+    <img data-asset="share" style="height: 40vh;">
+    <p>Τρεις πολυεθνικές με έδρα τις ΗΠΑ είναι οι απόλυτοι κυρίαρχοι του παιχνιδιού σε παγκόσμια κλίμακα.
+    <p>Μοιραστείτε αυτή την έρευνα!
+    <div class="social-share inline-img"></div>
+    <br><br>
+    <p>&copy; 2025 Φίλιππος Μαυρίδης<br>
+    <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.en" target="_blank">CC-BY-SA 4.0</a>
+    </section>
+  </body>
+</html>
+<!-- kate: replace-tabs true; tab-width 2; -->

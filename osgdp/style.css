@@ -1,0 +1,218 @@
+/* ----------------------------------------------------------------------------
+    Copyright © 2025 Philippe Mavridis <philippe.mavridis@yandex.com>
+    Distributed under the terms of CC-BY-SA 4.0:
+      https://creativecommons.org/licenses/by-sa/4.0/deed.en
+---------------------------------------------------------------------------- */
+
+*
+{
+  font-family: Inter, sans-serif;
+}
+
+html
+{
+  background: #000000;
+}
+
+body
+{
+  padding: 0;
+  margin: 0 auto;
+  max-width: 60em;
+  scroll-snap-type: y mandatory;
+}
+
+section
+{
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100vh;
+  padding: 5em;
+  margin-bottom: 10vh;
+  box-sizing: border-box;
+  scroll-snap-align: start;
+
+  opacity: 0;
+  transition: opacity 1s linear;
+
+  background: rgb(0, 0, 0);
+  color: rgb(255 255 255);
+}
+
+p
+{
+  line-height: 1.5em;
+}
+
+section.visible
+{
+  opacity: 1;
+}
+
+section > h1
+{
+  font-size: 2em;
+  transform: scale(1.15, 1);
+}
+
+.inline-img
+{
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.inline-img > img
+{
+  height: 5em;
+  margin: 1em;
+}
+
+.reveal
+{
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.tip
+{
+  color: #AFAFAF;
+  font-size: .75rem;
+}
+
+.social-share a
+{
+  width: 3em;
+  height: 1.5em;
+  text-align: center;
+}
+
+.social-share img
+{
+  height: 1.5em;
+  filter: brightness(.5);
+  transition: filter .25s;
+}
+
+.social-share img:hover
+{
+  filter: brightness(1);
+}
+
+a
+{
+  color: #FFFFFF;
+}
+
+/* --- Top ------------------------------------------------------------------ */
+
+#Top
+{
+  background: linear-gradient(to top, rgb(0 0 0), rgb(50 50 250));
+}
+
+#os-flex
+{
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+#os-flex > img
+{
+  height: 3em;
+  margin: .5em;
+  opacity: 0;
+  transform: scale(2, 2);
+  transition: opacity .25s linear, transform .25s linear;
+}
+
+#Top.visible #os-flex > img
+{
+  opacity: 1;
+  transform: scale(1, 1);
+}
+
+#os-flex .windows { transition-delay: 0s; }
+#os-flex .linux { transition-delay: .25s; }
+#os-flex .apple { transition-delay: .5s; }
+#os-flex .android { transition-delay: .75s; }
+
+/* --- Intro ---------------------------------------------------------------- */
+
+#pc-os
+{
+  position: relative;
+  margin-bottom: 5em;
+  background: radial-gradient(closest-side, rgb(50 50 250), rgb(0 0 0));
+  padding: 3em;
+}
+
+#pc-os .pc
+{
+  width: 16em;
+  transform: scale(2, 2);
+  transition: transform 1s;
+}
+
+#pc-os .os
+{
+  width: 3em;
+  position: absolute;
+  opacity: 0;
+  transform: scale(0, 0);
+  transition: opacity .25s linear, transform .25s linear;
+  z-index: 1;
+}
+
+#pc-os .windows { transition-delay: 1s; bottom: 50%; right: 50%; }
+#pc-os .linux   { transition-delay: 1.25s; bottom: 50%; left: 50%; }
+#pc-os .apple   { transition-delay: 1.5s; top: 50%; right: 50%; }
+#pc-os .android { transition-delay: 1.75s; top: 50%; left: 50%; }
+
+#Intro.visible #pc-os .pc
+{
+  transform: scale(1, 1);
+}
+
+#Intro.visible #pc-os .os
+{
+    opacity: 1;
+}
+
+#Intro.visible #pc-os .windows { transform: scale(1, 1) translate(-10em, -100%); }
+#Intro.visible #pc-os .linux   { transform: scale(1, 1) translate(10em, -100%); }
+#Intro.visible #pc-os .apple   { transform: scale(1, 1) translate(-10em, 100%); }
+#Intro.visible #pc-os .android { transform: scale(1, 1) translate(10em, 100%); }
+
+.os-intro table
+{
+    border-spacing: .5em;
+    margin: .5em;
+}
+
+.os-intro table tr td:first-child
+{
+    font-weight: bold;
+    text-align: right;
+}
+
+.os-intro table tr td:last-child
+{
+    text-align: left;
+}
+
+.os-intro table tr td
+{
+    width: 50%;
+}
+
+/* --- Outro ---------------------------------------------------------------- */
+
+#Outro
+{
+  margin-bottom: 0;
+}
+
+/* kate: replace-tabs true; indent-width 2; */

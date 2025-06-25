@@ -1,0 +1,69 @@
+--------------------------------------------------------------------------------
+                                                     _/
+                  _/_/      _/_/_/    _/_/_/    _/_/_/  _/_/_/
+               _/    _/  _/_/      _/    _/  _/    _/  _/    _/
+              _/    _/      _/_/  _/    _/  _/    _/  _/    _/
+               _/_/    _/_/_/      _/_/_/    _/_/_/  _/_/_/
+                                      _/            _/
+                                 _/_/              _/
+
+                                 operating systems and GDP per capita
+--------------------------------------------------------------------------------
+
+The aim of this project is to research the relationship between the spread of
+operating systems in different countries and a measure of their wealth (GDP per
+capita).
+
+There are very few players in the operating systems market, mostly due to the
+complexity of implementing a whole OS from scratch, but also because of
+monopolistic practices of big players. This has lead to a market which is
+mostly limited to big corporations.
+
+Different OS have different targets, purposes and users. Some are locked to
+specific (expensive) hardware and some can run even on lower-end devices.
+
+The question is, is economic wealth a factor which is related to the popularity
+of operating systems?
+
+The language of this project is Greek.
+
+
+Deployment
+==========
+
+You can directly view the HTML file in any compatible web browser (a relatively
+modern version is required due to the visualizations contained within). You can
+also upload the files to any web server which can serve static files.
+
+
+Files
+=====
+
+index.html  - contains the basic DOM structure
+
+style.css   - main stylesheet
+
+data.js     - initializes data structures from JSON datasets
+
+assets.js   - convenience functions for using standard assets
+
+main.js     - scroll reveal animation implementation
+
+map.*       - map visualization
+
+graph.*     - graph visualization
+
+year.js     - global Year object
+
+platform.js - global Platform object
+
+social.js   - social media share buttons code
+
+zen.js      - utility functions for better-readable code
+
+assets/*    - additional resources
+
+data/*      - datasets
+
+scripts/*   - Python scripts used to fetch data and convert it to convenient
+              JSON datasets
